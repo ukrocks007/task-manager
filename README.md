@@ -11,7 +11,7 @@ Follow these steps to set up and run the project on your local machine.
 Clone the project repository to your local machine using the following command:
 
 ```bash
-git clone https://github.com/ukrocks007/next-task-manager.git
+git clone https://github.com/ukrocks007/task-manager.git
 ```
 
 ### 2. Install Dependencies
