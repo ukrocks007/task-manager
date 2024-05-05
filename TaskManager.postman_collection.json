@@ -31,6 +31,15 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": \"asdasd-asda-sdasd-asda\",\n    \"title\": \"test\",\n    \"description\": \"test\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "http://localhost:3000/api/task",
 					"protocol": "http",
