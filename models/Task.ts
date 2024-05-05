@@ -1,6 +1,14 @@
-import { Task } from "@prisma/client";
+import { Task, TaskStatus } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { randomUUID } from "crypto";
+
+export const getById = async (id: string): Promise<Task | null> => {
+  return prisma.task.findUnique({
+    where: {
+      id,
+    },
+  });
+};
 
 export const getByUserId = async (userId: string): Promise<Task[]> => {
   return prisma.task.findMany({
@@ -26,4 +34,29 @@ export const create = async (data: {
   });
 };
 
+export const update = async (data: {
+  id: string;
+  title?: string;
+  description?: string;
+  status?: TaskStatus;
+}): Promise<Task> => {
+  const { id, title, description, status } = data;
+  return prisma.task.update({
+    where: {
+      id,
+    },
+    data: {
+      title,
+      description,
+      status,
+    },
+  });
+};
 
+export const remove = async (id: string): Promise<void> => {
+  prisma.task.delete({
+    where: {
+      id,
+    },
+  });
+};
