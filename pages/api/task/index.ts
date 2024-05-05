@@ -1,5 +1,6 @@
 import { validateOrThrow, createTaskSchema } from "@/lib/zod";
 import { create, getByUserId } from "@/models/Task";
+import { TaskStatus } from "@prisma/client";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(
@@ -23,7 +24,15 @@ export default async function handler(
 }
 
 async function handleGet(req: NextApiRequest, res: NextApiResponse) {
-  res.status(200).json({ data: await getByUserId(req.query.userId as string) });
+  const { userId, status } = req.query;
+  res
+    .status(200)
+    .json({
+      data: await getByUserId(
+        userId as string,
+        status as TaskStatus | undefined
+      ),
+    });
 }
 
 async function handlePost(req: NextApiRequest, res: NextApiResponse) {

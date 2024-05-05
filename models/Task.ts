@@ -10,10 +10,11 @@ export const getById = async (id: string): Promise<Task | null> => {
   });
 };
 
-export const getByUserId = async (userId: string): Promise<Task[]> => {
+export const getByUserId = async (userId: string, status: TaskStatus | undefined): Promise<Task[]> => {
   return prisma.task.findMany({
     where: {
       userId,
+      status,
     },
   });
 };
