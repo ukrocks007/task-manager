@@ -25,7 +25,7 @@ export const createTaskSchema = zod.object({
 });
 
 export const updateTaskSchema = zod.object({
-  id: zod
+  taskId: zod
     .string({
       required_error: "ID is required",
       invalid_type_error: "ID must be a string",

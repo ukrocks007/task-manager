@@ -30,7 +30,10 @@ async function handleGet(req: NextApiRequest, res: NextApiResponse) {
 }
 
 async function handlePut(req: NextApiRequest, res: NextApiResponse) {
-  const data = validateOrThrow(updateTaskSchema, req.body);
+  const data = validateOrThrow(updateTaskSchema, {
+    ...req.body,
+    ...req.query,
+  });
   res.status(200).json({ data: await update(data) });
 }
 

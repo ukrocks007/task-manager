@@ -36,15 +36,15 @@ export const create = async (data: {
 };
 
 export const update = async (data: {
-  id: string;
+  taskId: string;
   title?: string;
   description?: string;
   status?: TaskStatus;
 }): Promise<Task> => {
-  const { id, title, description, status } = data;
+  const { taskId, title, description, status } = data;
   return prisma.task.update({
     where: {
-      id,
+      id: taskId,
     },
     data: {
       title,
@@ -55,7 +55,7 @@ export const update = async (data: {
 };
 
 export const remove = async (id: string): Promise<void> => {
-  prisma.task.delete({
+  await prisma.task.delete({
     where: {
       id,
     },
