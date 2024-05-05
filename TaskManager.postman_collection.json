@@ -56,6 +56,39 @@
 			"response": []
 		},
 		{
+			"name": "Get By Id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"title\",\n    \"description\": \"\",\n    \"status\": \"IN_PROGRESS\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/task/763ebd7c-1bf8-4a1a-b641-7718c5035db8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"task",
+						"763ebd7c-1bf8-4a1a-b641-7718c5035db8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Update",
 			"request": {
 				"method": "PUT",
