@@ -33,11 +33,19 @@ DATABASE_URL="postgresql://username:password@localhost:5432/db_name"
 
 ### 4. Run migration
 
-Run following command to run the migrations.
+Run following command to run the migrations. This will also run the seeder.
 
 ```bash
-npx prisma migrate deploy
+npx prisma migrate dev
 ```
+
+In case seeder is not executed automatically you can run it manually using
+
+```bash
+npx prisma db seed
+```
+
+After seeder execution you will see user & tasks printed on the console. You can use the user id from the console to use in postman.
 
 ### 5. Run the Development Server
 
